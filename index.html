@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <title>Hello, World!</title>
+</head>
+<body>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalStorage Example</title>
+</head>
+<body>
+    <h1>Save and Display Input</h1>
+    
+    <!-- Input field and button -->
+    <input type="text" id="userInput" placeholder="Type something here...">
+    <button id="saveButton">Save</button>
+    
+    <!-- Paragraph to display the saved text -->
+    <p id="output"></p>
+    
+    <script>
+        // Get references to the input, button, and paragraph
+        const input = document.getElementById('userInput');
+        const button = document.getElementById('saveButton');
+        const output = document.getElementById('output');
+
+        // Load and display saved data from localStorage when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedText = localStorage.getItem('savedText'); // Retrieve saved data
+            if (savedText) {
+                output.textContent = savedText; // Display it as a paragraph
+            }
+        });
+
+        // Save input to localStorage and display it as a paragraph
+        button.addEventListener('click', () => {
+            const text = input.value.trim(); // Get the input value
+            if (text) {
+                localStorage.setItem('savedText', text); // Save the text in localStorage
+                output.textContent = text; // Display the text as a paragraph
+                input.value = ''; // Clear the input field
+            } else {
+                alert('Please enter some text before saving!');
+            }
+        });
+    </script>
+</body>
+</html>
+</body>
+</html>
